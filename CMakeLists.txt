@@ -100,5 +100,3 @@ TARGET_LINK_LIBRARIES(3PCHM
   testlib
 )
 
-
-
