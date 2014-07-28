@@ -1,0 +1,2248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SimpleView</class>
+ <widget class="QMainWindow" name="SimpleView">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1231</width>
+    <height>860</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+    <horstretch>1</horstretch>
+    <verstretch>1</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>3D Registration Toolkit</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>true</bool>
+  </property>
+  <property name="iconSize">
+   <size>
+    <width>22</width>
+    <height>22</height>
+   </size>
+  </property>
+  <widget class="QWidget" name="Widget_Main">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+     <horstretch>1</horstretch>
+     <verstretch>1</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="autoFillBackground">
+    <bool>true</bool>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QGroupBox" name="GroupBox_View">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+        <horstretch>3</horstretch>
+        <verstretch>1</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="title">
+       <string>View</string>
+      </property>
+      <layout class="QGridLayout" name="Layout_View">
+       <item row="0" column="0">
+        <widget class="QVTKWidget" name="VTKWidget_Render" native="true">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>1</horstretch>
+           <verstretch>1</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="autoFillBackground">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QTabWidget" name="TabWidget_Process">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>1</horstretch>
+        <verstretch>1</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <widget class="QWidget" name="Widget_Initial">
+       <attribute name="title">
+        <string>Initial</string>
+       </attribute>
+       <layout class="QGridLayout" name="Layout_Initial">
+        <item row="1" column="0" colspan="2">
+         <widget class="QGroupBox" name="GroupBox_Transformation">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>1</horstretch>
+            <verstretch>2</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="title">
+           <string>Transformation</string>
+          </property>
+          <layout class="QGridLayout" name="Layout_Transformation">
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="LineEdit_RotationY"/>
+           </item>
+           <item row="6" column="0">
+            <widget class="QLabel" name="Label_TranslationY">
+             <property name="text">
+              <string>Translation Y</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="0">
+            <widget class="QLabel" name="Label_TranslationZ">
+             <property name="text">
+              <string>Translation Z</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="1">
+            <widget class="QLineEdit" name="LineEdit_TranslationZ"/>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLineEdit" name="LineEdit_RotationZ"/>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="Label_RotationZ">
+             <property name="text">
+              <string>Rotation Z</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="Label_RotationY">
+             <property name="text">
+              <string>Rotation Y</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="Label_RotationX">
+             <property name="text">
+              <string>Rotation X</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="LineEdit_RotationX"/>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="Label_TranslationX">
+             <property name="text">
+              <string>Translation X</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="1">
+            <widget class="QLineEdit" name="LineEdit_TranslationY"/>
+           </item>
+           <item row="3" column="1">
+            <widget class="QLineEdit" name="LineEdit_TranslationX"/>
+           </item>
+           <item row="10" column="1">
+            <widget class="QPushButton" name="PushButton_Transform">
+             <property name="text">
+              <string>Transform</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="0">
+            <widget class="QPushButton" name="PushButton_RandomT">
+             <property name="text">
+              <string>Random</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="1">
+            <widget class="QLineEdit" name="LineEdit_Scale"/>
+           </item>
+           <item row="9" column="0">
+            <widget class="QLabel" name="Label_Scale">
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="text">
+              <string>Scale</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="0" colspan="2">
+         <widget class="QGroupBox" name="GroupBox_ModelChoice">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>1</horstretch>
+            <verstretch>1</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="title">
+           <string>Model</string>
+          </property>
+          <layout class="QGridLayout" name="Layout_ModelChoice">
+           <item row="2" column="0">
+            <widget class="QRadioButton" name="RadioButton_Source">
+             <property name="text">
+              <string>Source Model</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLineEdit" name="LineEdit_SourcePts">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="1">
+            <widget class="QLineEdit" name="LineEdit_TargetPts">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="0">
+            <widget class="QRadioButton" name="RadioButton_Target">
+             <property name="text">
+              <string>Target Model</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="2">
+            <widget class="QLabel" name="Label_SourcePts">
+             <property name="text">
+              <string>Pts</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="2">
+            <widget class="QLabel" name="Label_TargetPts">
+             <property name="text">
+              <string>Pts</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="2" column="0" colspan="2">
+         <widget class="QGroupBox" name="GroupBox_Normalization">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>1</horstretch>
+            <verstretch>1</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="title">
+           <string>Normalization</string>
+          </property>
+          <layout class="QGridLayout" name="Layout_Normalization">
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="LineEdit_Bounding"/>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="Label_Bounding">
+             <property name="text">
+              <string>Bounding Box</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QPushButton" name="PushButton_Normalization">
+             <property name="text">
+              <string>Normalization</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="3" column="0" colspan="2">
+         <widget class="QGroupBox" name="GroupBox_Noising">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>1</horstretch>
+            <verstretch>1</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="title">
+           <string>Noising</string>
+          </property>
+          <layout class="QGridLayout" name="GridLayout_Noising">
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="LineEdit_Sigma">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="Label_Sigma">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>Sigma</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QPushButton" name="PushButton_Noising">
+             <property name="text">
+              <string>Noising</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1" colspan="2">
+            <widget class="QPushButton" name="PushButton_TPSNoising">
+             <property name="text">
+              <string>TPS Warping</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="Widget_Register">
+       <attribute name="title">
+        <string>Register</string>
+       </attribute>
+       <layout class="QGridLayout" name="Layout_Register">
+        <item row="1" column="1">
+         <widget class="QToolBox" name="ToolBox_Register">
+          <property name="currentIndex">
+           <number>4</number>
+          </property>
+          <widget class="QWidget" name="Widget_LMICP">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>231</width>
+             <height>147</height>
+            </rect>
+           </property>
+           <attribute name="label">
+            <string>LMICP</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_8">
+            <item row="1" column="0" colspan="2">
+             <widget class="QPushButton" name="PushButton_LMICP">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
+              <property name="autoFillBackground">
+               <bool>false</bool>
+              </property>
+              <property name="text">
+               <string>LMICP</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="QLabel" name="Label_ICPIter">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>Max_Iteration</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLineEdit" name="LineEdit_ICPIter">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0" colspan="2">
+             <widget class="QGroupBox" name="GroupBox_ICPTime">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="title">
+               <string>Elapsed Time</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_9">
+               <item row="0" column="0">
+                <widget class="QLabel" name="Label_ICPTime">
+                 <property name="layoutDirection">
+                  <enum>Qt::LeftToRight</enum>
+                 </property>
+                 <property name="text">
+                  <string>Total</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLineEdit" name="LineEdit_ICPTime">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="Widget_3PCHM">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>342</width>
+             <height>383</height>
+            </rect>
+           </property>
+           <attribute name="label">
+            <string>3PCHM</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_7">
+            <item row="4" column="1">
+             <widget class="QGroupBox" name="GroupBox_CHMTime">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="title">
+               <string>Elapsed Time</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_10">
+               <item row="0" column="0">
+                <widget class="QLabel" name="Label_Time">
+                 <property name="text">
+                  <string>Total</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLineEdit" name="LineEdit_CHMTime">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="0" colspan="2">
+             <widget class="QGroupBox" name="GroupBox_SimilarityMeasure">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="title">
+               <string>Similarity Measure</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_5">
+               <item row="0" column="0">
+                <widget class="QRadioButton" name="RadioButton_ADMMeasure">
+                 <property name="text">
+                  <string>ADM(Appropriate Distance)</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QRadioButton" name="RadioButton_LCPMeasure">
+                 <property name="text">
+                  <string>LCP(Largest Common Pointset)</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="0" column="0" colspan="2">
+             <widget class="QGroupBox" name="GroupBox_SamplingDensity">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="title">
+               <string>Sampling Density</string>
+              </property>
+              <layout class="QGridLayout" name="Layout_SamplingDensity">
+               <item row="0" column="1">
+                <widget class="QLineEdit" name="LineEdit_SourceSD"/>
+               </item>
+               <item row="4" column="1">
+                <widget class="QLineEdit" name="LineEdit_TargetSD"/>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="Label_SourceSD">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="text">
+                  <string>Source Model</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0" rowspan="2">
+                <widget class="QLabel" name="Label_TargetSD">
+                 <property name="text">
+                  <string>Target Model</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QPushButton" name="PushButton_3PCHM">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>3PCHM</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QGroupBox" name="GroupBox_ConvexHull">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="title">
+               <string>Convex Hull</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_6">
+               <item row="0" column="0">
+                <widget class="QCheckBox" name="CheckBox_ConvexHullNormalizing">
+                 <property name="text">
+                  <string>Convex Hull Normalizing</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QPushButton" name="PushButton_ConvexHull">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="text">
+                  <string>Extraction</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="Widget_Project">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>344</width>
+             <height>529</height>
+            </rect>
+           </property>
+           <attribute name="label">
+            <string>IIOCH</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_12">
+            <item row="4" column="0">
+             <widget class="QPushButton" name="PushButton_ProjRegister">
+              <property name="text">
+               <string>Register</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QCheckBox" name="ViewCheck_Show2DMatches">
+              <property name="text">
+               <string>Show 2D Matches</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QPushButton" name="PushButton_ProjMatch">
+              <property name="text">
+               <string>Match</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QPushButton" name="PushButton_Show3DMatches">
+              <property name="text">
+               <string>Show 3D Matches</string>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="0">
+             <widget class="QGroupBox" name="GroupBox_IIOCHTime">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="title">
+               <string>Elapsed Time</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_11">
+               <item row="0" column="0">
+                <widget class="QLabel" name="Label_IIOCHTime">
+                 <property name="text">
+                  <string>Total</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLineEdit" name="LineEdit_IIOCHTime">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="QGroupBox" name="GroupBox_Proj">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="title">
+               <string>Projection</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_4">
+               <item row="6" column="0">
+                <widget class="QLineEdit" name="LineEdit_ProjOneId"/>
+               </item>
+               <item row="1" column="1" colspan="3">
+                <widget class="QLineEdit" name="LineEdit_Path2">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                   <horstretch>5</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>100</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1" colspan="3">
+                <widget class="QLineEdit" name="LineEdit_Path1">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+                   <horstretch>5</horstretch>
+                   <verstretch>1</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>100</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="Label_Path2">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+                   <horstretch>1</horstretch>
+                   <verstretch>1</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="text">
+                  <string>Tag Path</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="Label_Path1">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+                   <horstretch>1</horstretch>
+                   <verstretch>1</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="text">
+                  <string>Src Path</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1" colspan="4">
+                <widget class="QLineEdit" name="LineEdit_ImgSize"/>
+               </item>
+               <item row="6" column="1" colspan="4">
+                <widget class="QPushButton" name="PushButton_ProjOneImg">
+                 <property name="text">
+                  <string>Project One Image</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="8" column="0" colspan="5">
+                <widget class="QPushButton" name="PushButton_Proj">
+                 <property name="text">
+                  <string>Projection</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="4">
+                <widget class="QPushButton" name="PushButton_Path1">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>1</horstretch>
+                   <verstretch>1</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>20</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>...</string>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>16</width>
+                   <height>16</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="0" colspan="5">
+                <widget class="QPushButton" name="PushButton_RandomProj">
+                 <property name="text">
+                  <string>Random Projection</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="4">
+                <widget class="QPushButton" name="PushButton_Path2">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>20</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>...</string>
+                 </property>
+                 <property name="autoRepeatInterval">
+                  <number>100</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="Label_ImgSize">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="text">
+                  <string>Img Size</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0" colspan="5">
+                <widget class="QRadioButton" name="RadioButton_RenderWhole">
+                 <property name="text">
+                  <string>Render Whole Facets</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0" colspan="3">
+                <widget class="QRadioButton" name="RadioButton_RenderTriOnly">
+                 <property name="text">
+                  <string>Render Triangle Only</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="0" colspan="3">
+                <widget class="QRadioButton" name="RadioButton_RenderNothing">
+                 <property name="text">
+                  <string>Render Nothing</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="Widget_CHGMM">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>344</width>
+             <height>529</height>
+            </rect>
+           </property>
+           <attribute name="label">
+            <string>CHGMM</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_14">
+            <item row="0" column="0">
+             <widget class="QGroupBox" name="GroupBox_CHGMMParameters">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="title">
+               <string>Parameters</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_13">
+               <item row="0" column="0">
+                <widget class="QLabel" name="Label_CHGMMAlpha">
+                 <property name="text">
+                  <string>Alpha</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLineEdit" name="LineEdit_CHGMMAlpha">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="Label_CHGMMBeta">
+                 <property name="text">
+                  <string>Beta</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLineEdit" name="LineEdit_CHGMMBeta">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QPushButton" name="PushButton_CHGMM">
+              <property name="text">
+               <string>CHGMM</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QGroupBox" name="GroupBox_CHGMMTime">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="title">
+               <string>Elapsed Time</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_15">
+               <item row="0" column="0">
+                <widget class="QLabel" name="Label_CHGMMTime">
+                 <property name="text">
+                  <string>Total</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLineEdit" name="LineEdit_CHGMMTime">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QPushButton" name="PushButton_CHGMMNonRigid">
+              <property name="text">
+               <string>Non-Rigid Refine</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="Widget_GMMReg">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>344</width>
+             <height>529</height>
+            </rect>
+           </property>
+           <attribute name="label">
+            <string>GMMReg</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_20">
+            <item row="3" column="0">
+             <widget class="QGroupBox" name="GroupBox_GMMTime">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="title">
+               <string>Elapsed Time</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_17">
+               <item row="0" column="1">
+                <widget class="QLineEdit" name="LineEdit_GMMTime">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="Label_GMMTime">
+                 <property name="text">
+                  <string>Total</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="0" column="0" colspan="3">
+             <widget class="QGroupBox" name="GroupBox_GMMParameters">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="title">
+               <string>Parameters</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_16">
+               <item row="0" column="2">
+                <widget class="QLineEdit" name="LineEdit_GMMLevel"/>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="Label_GMMBeta">
+                 <property name="text">
+                  <string>Beta</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="2" rowspan="2">
+                <widget class="QLineEdit" name="LineEdit_GMMBeta"/>
+               </item>
+               <item row="4" column="0">
+                <widget class="QLabel" name="Label_GMMMaxEvals">
+                 <property name="text">
+                  <string>Max Evals</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0" rowspan="2">
+                <widget class="QLabel" name="Label_GMMLevel">
+                 <property name="text">
+                  <string>Level</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="Label_GMMLambda">
+                 <property name="text">
+                  <string>Lambda</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="2">
+                <widget class="QLineEdit" name="LineEdit_GMMLambda"/>
+               </item>
+               <item row="4" column="2">
+                <widget class="QLineEdit" name="LineEdit_GMMMaxEvals"/>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QGroupBox" name="GroupBox_GMMNonRigid">
+              <property name="title">
+               <string>Non-Rigid</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_18">
+               <item row="0" column="0">
+                <widget class="QPushButton" name="PushButton_GMMNonRigid">
+                 <property name="text">
+                  <string>GMM Registration</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QGroupBox" name="GroupBox_GMMRigid">
+              <property name="title">
+               <string>Rigid</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_19">
+               <item row="0" column="0">
+                <widget class="QPushButton" name="PushButton_GMMRigid">
+                 <property name="text">
+                  <string>GMM Registration</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="Widget_CPD">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>344</width>
+             <height>529</height>
+            </rect>
+           </property>
+           <attribute name="label">
+            <string>CPD</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_22">
+            <item row="0" column="0">
+             <widget class="QGroupBox" name="GroupBox_CPDParameters">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="title">
+               <string>Parameters</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_21">
+               <item row="0" column="0">
+                <widget class="QLabel" name="Label_CPDEmtol">
+                 <property name="text">
+                  <string>Emtol</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="0">
+                <widget class="QLabel" name="Label_CPDTol">
+                 <property name="text">
+                  <string>Tol</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0">
+                <widget class="QLabel" name="Label_CPDLambda">
+                 <property name="text">
+                  <string>Lambda</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QLineEdit" name="LineEdit_CPDEmtol"/>
+               </item>
+               <item row="9" column="2">
+                <widget class="QLineEdit" name="LineEdit_CPDMaxEMIter"/>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="Label_CPDAnneal">
+                 <property name="text">
+                  <string>Anneal</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="9" column="0">
+                <widget class="QLabel" name="Label_CPDMaxEMIter">
+                 <property name="text">
+                  <string>Max_EM_Iter</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="2">
+                <widget class="QLineEdit" name="LineEdit_CPDLambda"/>
+               </item>
+               <item row="5" column="0">
+                <widget class="QLabel" name="Label_CPDOutliers">
+                 <property name="text">
+                  <string>Outliers</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="0">
+                <widget class="QLabel" name="Label_CPDSigma">
+                 <property name="text">
+                  <string>Sigma</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="Label_CPDBeta">
+                 <property name="text">
+                  <string>Beta</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="2">
+                <widget class="QLineEdit" name="LineEdit_CPDAnneal"/>
+               </item>
+               <item row="8" column="0">
+                <widget class="QLabel" name="Label_CPDMaxIter">
+                 <property name="text">
+                  <string>Max_Iter</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="2">
+                <widget class="QLineEdit" name="LineEdit_CPDBeta"/>
+               </item>
+               <item row="5" column="2">
+                <widget class="QLineEdit" name="LineEdit_CPDOutliers"/>
+               </item>
+               <item row="6" column="2">
+                <widget class="QLineEdit" name="LineEdit_CPDSigma"/>
+               </item>
+               <item row="7" column="2">
+                <widget class="QLineEdit" name="LineEdit_CPDTol"/>
+               </item>
+               <item row="8" column="2">
+                <widget class="QLineEdit" name="LineEdit_CPDMaxIter"/>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QPushButton" name="PushButton_CPD">
+              <property name="text">
+               <string>CPD</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QGroupBox" name="GroupBox_CPDTime">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="title">
+               <string>Elapsed Time</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_23">
+               <item row="0" column="0">
+                <widget class="QLabel" name="Label_CPDTime">
+                 <property name="text">
+                  <string>Total</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLineEdit" name="LineEdit_CPDTime">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="Widget_View">
+       <attribute name="title">
+        <string>View</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="4" column="0">
+         <widget class="QPushButton" name="PushButton_Render">
+          <property name="minimumSize">
+           <size>
+            <width>10</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>120</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="layoutDirection">
+           <enum>Qt::RightToLeft</enum>
+          </property>
+          <property name="autoFillBackground">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>Render</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QGroupBox" name="GroupBox_ViewModel">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>1</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="title">
+           <string>View Options</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_3">
+           <item row="37" column="0">
+            <widget class="QCheckBox" name="ViewCheck_DistanceMap">
+             <property name="text">
+              <string>Distance Map</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLineEdit" name="LineEdit_BackGroundG">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <widget class="QLineEdit" name="LineEdit_BackGroundB">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+           <item row="13" column="2">
+            <widget class="QLineEdit" name="LineEdit_TargetPointG">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="0">
+            <widget class="QLabel" name="Label_SourcePointColor">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>100</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Color(Edge)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="13" column="0">
+            <widget class="QLabel" name="Label_TargetPointColor">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>100</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Color(Edge)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="13" column="3">
+            <widget class="QLineEdit" name="LineEdit_TargetPointB">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="Label_BackgroundColor">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>100</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Background Color</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="2">
+            <widget class="QLineEdit" name="LineEdit_SourcePointG">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+           <item row="13" column="1">
+            <widget class="QLineEdit" name="LineEdit_TargetPointR">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="3">
+            <widget class="QLineEdit" name="LineEdit_SourcePointB">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="LineEdit_BackGroundR">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+           <item row="21" column="2">
+            <widget class="QLineEdit" name="LineEdit_SourceMeshG">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+           <item row="35" column="1" colspan="3">
+            <widget class="QLineEdit" name="LineEdit_TargetConvexHullOpacity">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+               <horstretch>2</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+           <item row="35" column="0">
+            <widget class="QLabel" name="Label_TargetConvexHullOpacity">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>100</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Opacity</string>
+             </property>
+            </widget>
+           </item>
+           <item row="26" column="3">
+            <widget class="QLineEdit" name="LineEdit_TargetMeshB">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+           <item row="25" column="1" colspan="3">
+            <widget class="QLineEdit" name="LineEdit_TargetMeshOpacity">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+               <horstretch>2</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+           <item row="25" column="0">
+            <widget class="QLabel" name="Label_TargetMeshOpacity">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>100</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Opacity</string>
+             </property>
+            </widget>
+           </item>
+           <item row="36" column="1">
+            <widget class="QLineEdit" name="LineEdit_TargetConvexHullR">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+           <item row="21" column="1">
+            <widget class="QLineEdit" name="LineEdit_SourceMeshR">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+           <item row="26" column="2">
+            <widget class="QLineEdit" name="LineEdit_TargetMeshG">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+           <item row="21" column="0">
+            <widget class="QLabel" name="Label_SourceMeshColor">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>100</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Color</string>
+             </property>
+            </widget>
+           </item>
+           <item row="26" column="0">
+            <widget class="QLabel" name="Label_TargetMeshColor">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>100</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Color</string>
+             </property>
+            </widget>
+           </item>
+           <item row="31" column="0">
+            <widget class="QLabel" name="Label_SourceConvexHullColor">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>100</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Color</string>
+             </property>
+            </widget>
+           </item>
+           <item row="26" column="1">
+            <widget class="QLineEdit" name="LineEdit_TargetMeshR">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+           <item row="21" column="3">
+            <widget class="QLineEdit" name="LineEdit_SourceMeshB">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+           <item row="30" column="1" colspan="3">
+            <widget class="QLineEdit" name="LineEdit_SourceConvexHullOpacity">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+               <horstretch>2</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+           <item row="31" column="2">
+            <widget class="QLineEdit" name="LineEdit_SourceConvexHullG">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+           <item row="36" column="0">
+            <widget class="QLabel" name="Label_TargetConvexHullColor">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>100</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Color</string>
+             </property>
+            </widget>
+           </item>
+           <item row="31" column="1">
+            <widget class="QLineEdit" name="LineEdit_SourceConvexHullR">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+           <item row="31" column="3">
+            <widget class="QLineEdit" name="LineEdit_SourceConvexHullB">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+           <item row="36" column="2">
+            <widget class="QLineEdit" name="LineEdit_TargetConvexHullG">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+           <item row="30" column="0">
+            <widget class="QLabel" name="Label_ConvexHullOpacity">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>100</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Opacity</string>
+             </property>
+            </widget>
+           </item>
+           <item row="36" column="3">
+            <widget class="QLineEdit" name="LineEdit_TargetConvexHullB">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+           <item row="20" column="0">
+            <widget class="QLabel" name="Label_SourceMeshOpacity">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>100</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Opacity</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="1">
+            <widget class="QLineEdit" name="LineEdit_SourcePointR">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QCheckBox" name="ViewCheck_Axis">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Axis</string>
+             </property>
+            </widget>
+           </item>
+           <item row="22" column="0">
+            <widget class="QCheckBox" name="ViewCheck_TargetMesh">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Target Mesh</string>
+             </property>
+            </widget>
+           </item>
+           <item row="14" column="0">
+            <widget class="QCheckBox" name="ViewCheck_SourceMesh">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Source Mesh</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QCheckBox" name="ViewCheck_SourcePoint">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Source Point</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="0">
+            <widget class="QCheckBox" name="ViewCheck_TargetPoint">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Target Point</string>
+             </property>
+            </widget>
+           </item>
+           <item row="27" column="0">
+            <widget class="QCheckBox" name="ViewCheck_SourceConvexHull">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Source Hull</string>
+             </property>
+            </widget>
+           </item>
+           <item row="32" column="0">
+            <widget class="QCheckBox" name="ViewCheck_TargetConvexHull">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Target Hull</string>
+             </property>
+            </widget>
+           </item>
+           <item row="20" column="1" colspan="3">
+            <widget class="QLineEdit" name="LineEdit_SourceMeshOpacity">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+               <horstretch>2</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+           <item row="38" column="0">
+            <widget class="QLabel" name="Label_Range">
+             <property name="text">
+              <string>Range</string>
+             </property>
+            </widget>
+           </item>
+           <item row="38" column="1" colspan="3">
+            <widget class="QLineEdit" name="LineEdit_Range"/>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="Widget_Statistic">
+       <attribute name="title">
+        <string>Statistic</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_25">
+        <item row="0" column="0">
+         <widget class="QGroupBox" name="GroupBox_Statistic">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="title">
+           <string>Statistic Error</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_24">
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="LineEdit_StatConvexHullDistance">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QLineEdit" name="LineEdit_StatCHGMML2">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="Label_StatGMML2">
+             <property name="text">
+              <string>GMM L2</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="Label_StatClosetPointDistance">
+             <property name="text">
+              <string>Closet Point Distance</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="LineEdit_StatClosetPointDistance">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="Label_StatCHGMML2">
+             <property name="text">
+              <string>CHGMM L2</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="Label_StatConvexHullDistance">
+             <property name="text">
+              <string>Convex Hull Distance</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLineEdit" name="LineEdit_StatGMML2">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <widget class="QPushButton" name="PushButton_StatUpdate">
+             <property name="text">
+              <string>Update</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="Label_StatOutName">
+             <property name="text">
+              <string>Output Name</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <widget class="QLineEdit" name="LineEdit_StatOutName"/>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QGroupBox" name="GroupBox_Test">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="title">
+           <string>Group Test</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_26">
+           <item row="0" column="0">
+            <widget class="QLabel" name="Label_TestPath">
+             <property name="text">
+              <string>File Path:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1" colspan="2">
+            <widget class="QLineEdit" name="LineEdit_TestPath"/>
+           </item>
+           <item row="0" column="3">
+            <widget class="QPushButton" name="PushButton_TestPath">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>25</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0" colspan="2">
+            <widget class="QLabel" name="Label_TestNum">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>1</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>Number of Sources:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2" colspan="2">
+            <widget class="QLineEdit" name="LineEdit_TestNum">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>3</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="2" colspan="2">
+            <widget class="QPushButton" name="PushButton_Test">
+             <property name="text">
+              <string>Test</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1231</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuLoad_File">
+    <property name="title">
+     <string>Load File</string>
+    </property>
+    <addaction name="Action_OpenSource"/>
+    <addaction name="Action_OpenTarget"/>
+    <addaction name="separator"/>
+    <addaction name="Action_Exit"/>
+   </widget>
+   <widget class="QMenu" name="menuSave_File">
+    <property name="title">
+     <string>Save File</string>
+    </property>
+    <addaction name="Action_SaveSource"/>
+    <addaction name="Action_SaveTarget"/>
+    <addaction name="Action_SaveMixed"/>
+   </widget>
+   <addaction name="menuLoad_File"/>
+   <addaction name="menuSave_File"/>
+  </widget>
+  <widget class="QStatusBar" name="StatusBar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>22</width>
+     <height>22</height>
+    </size>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="Action_OpenSource"/>
+   <addaction name="Action_OpenTarget"/>
+   <addaction name="Action_SaveSource"/>
+   <addaction name="Action_SaveTarget"/>
+   <addaction name="Action_SaveMixed"/>
+  </widget>
+  <action name="Action_OpenSource">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Load Source Model</string>
+   </property>
+   <property name="iconText">
+    <string>Load Source Model</string>
+   </property>
+   <property name="toolTip">
+    <string>Load Source Model</string>
+   </property>
+  </action>
+  <action name="Action_Exit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="Action_OpenTarget">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Load Target Model</string>
+   </property>
+   <property name="iconText">
+    <string>Load Target Model</string>
+   </property>
+   <property name="toolTip">
+    <string>Load Target Model</string>
+   </property>
+  </action>
+  <action name="Action_SaveSource">
+   <property name="text">
+    <string>Save Source Model</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="Action_SaveTarget">
+   <property name="text">
+    <string>Save Target Model</string>
+   </property>
+  </action>
+  <action name="Action_SaveMixed">
+   <property name="text">
+    <string>Save Mixed Model</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QVTKWidget</class>
+   <extends>QWidget</extends>
+   <header>QVTKWidget.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
