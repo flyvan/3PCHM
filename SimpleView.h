@@ -180,6 +180,7 @@ private:
     vtkSmartPointer<vtkPolyData> SparsePoints_Target;
 
     vtkSmartPointer<vtkDistancePolyDataFilter> DistanceFilter;
+    vtkSmartPointer <vtkLookupTable> lut;
 
     vtkSmartPointer<vtkPolyDataMapper> PolyDataMapper_Source;
     vtkSmartPointer<vtkPolyDataMapper> PolyDataMapper_Target;

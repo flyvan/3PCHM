@@ -61,6 +61,7 @@ void SimpleView::VTKVariablesInit()
     VTK_NEW(vtkPoints, GMPoints_Target);
 
     VTK_NEW(vtkPolyDataMapper, DistanceMapper);
+    VTK_NEW(vtkLookupTable, lut);
     VTK_NEW(vtkDistancePolyDataFilter, DistanceFilter);
     VTK_NEW(vtkActor, Actor_DistanceMap);
     VTK_NEW(vtkScalarBarActor, Actor_scalarBar);
@@ -207,7 +208,7 @@ void SimpleView::QTVariablesInit()
     ui->LineEdit_TargetConvexHullR->setText("0.8");
     ui->LineEdit_TargetConvexHullG->setText("0.7");
     ui->LineEdit_TargetConvexHullB->setText("0.5");
-    ui->LineEdit_Range->setText("0.1");
+    ui->LineEdit_Range->setText("0.03");
 }
 
 void SimpleView::FlagReset()
@@ -301,18 +302,6 @@ void SimpleView::slotRender()
     Actor_ConvexHullTarget->GetProperty()->SetOpacity(o);
     Actor_ConvexHullTarget->GetProperty()->SetPointSize(0);
 
-
-    o = ui->LineEdit_Range->text().toDouble();
-    DistanceMapper->SetInputConnection(DistanceFilter->GetOutputPort());
-    DistanceMapper->SetScalarRange(o*-1, o);
-    Actor_DistanceMap->SetMapper(DistanceMapper);
-    Actor_DistanceMap->GetProperty()->SetAmbient(0.5);
-    Actor_DistanceMap->GetProperty()->SetDiffuse(0.2);
-    DistanceMapper->GetLookupTable()->SetRange(o*-1, o);
-    Actor_scalarBar->SetLookupTable(DistanceMapper->GetLookupTable());
-    Actor_scalarBar->SetTitle("Distance");
-    Actor_scalarBar->SetNumberOfLabels(4);
-
     r = ui->LineEdit_BackGroundR->text().toDouble();
     g = ui->LineEdit_BackGroundG->text().toDouble();
     b = ui->LineEdit_BackGroundB->text().toDouble();
@@ -339,16 +328,24 @@ void SimpleView::slotRender()
     if (ui->ViewCheck_DistanceMap->isOn())
     {
         DistanceMap();
-        o = ui->LineEdit_Range->text().toDouble();
+        o = ui->LineEdit_Range->text().toDouble() * Max_Bound(PolyData_Target);
         DistanceMapper->SetInputConnection(DistanceFilter->GetOutputPort());
-        DistanceMapper->SetScalarRange(o*-1, o);
+        DistanceMapper->SetScalarRange(0, o);
         Actor_DistanceMap->SetMapper(DistanceMapper);
         Actor_DistanceMap->GetProperty()->SetAmbient(0.5);
         Actor_DistanceMap->GetProperty()->SetDiffuse(0.2);
-        DistanceMapper->GetLookupTable()->SetRange(o*-1, o);
-        Actor_scalarBar->SetLookupTable(DistanceMapper->GetLookupTable());
+        DistanceMapper->SetLookupTable(lut);
+        lut->SetNumberOfTableValues(42);
+        lut->Build();
+        for (int i = 0; i < 21; i++)
+            lut->SetTableValue(i, i * 0.05, 1, 0);
+        for (int i = 0; i < 21; i++)
+            lut->SetTableValue(21 + i, 1, 1 - i * 0.05, 0);
+        lut->SetRange(0, o);
+        Actor_scalarBar->SetLookupTable(lut);
         Actor_scalarBar->SetTitle("Distance");
         Actor_scalarBar->SetNumberOfLabels(4);
+        Actor_scalarBar->SetWidth(0.1);
         ren->AddActor(Actor_DistanceMap);
         ren->AddActor2D(Actor_scalarBar);
     }
@@ -1783,6 +1780,8 @@ void SimpleView::DistanceMap()
 
     DistanceFilter->SetInputConnection( 0, clean1->GetOutputPort() );
     DistanceFilter->SetInputConnection( 1, clean2->GetOutputPort() );
+    //DistanceFilter->SetNegateDistance(1);
+    DistanceFilter->SetSignedDistance(0);
     DistanceFilter->Update();
 }
 
