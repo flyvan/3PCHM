@@ -46,6 +46,7 @@ Jingfan Fan
 #include <vtkTextureMapToPlane.h>
 #include <vtkMath.h>
 #include <vtkMatrix4x4.h>
+#include <vtkMassProperties.h>
 
 /* Include QT header files*/
 #include <QFileDialog>

@@ -752,6 +752,12 @@ void SimpleView::slotConvexHull()
         Points2PolyData(CHM.Points_Target, SparsePoints_Target);
     }
 
+    VTK_CREATE(vtkMassProperties, massProperty);
+    massProperty->SetInput(CHM.ConvexHull_Source);
+    massProperty->Update();
+    double vol = massProperty->GetVolume();
+    cout << vol << endl;
+
     Flag_ConvexHull = true;
     slotRender();
 }
