@@ -103,6 +103,7 @@ void SimpleView::QTVariablesInit()
     connect(ui->PushButton_StatUpdate, SIGNAL(clicked()), this, SLOT(slotStatUpdate()));
     connect(ui->PushButton_Test, SIGNAL(clicked()), this, SLOT(slotTest()));
     connect(ui->PushButton_TestPath, SIGNAL(clicked()), this, SLOT(slotTestPath()));
+    connect(ui->PushButton_MeanModel, SIGNAL(clicked()), this, SLOT(slotMeanModel()));
 
     /* Initialization */
     /* Page of Initial */
@@ -209,6 +210,8 @@ void SimpleView::QTVariablesInit()
     ui->LineEdit_TargetConvexHullG->setText("0.7");
     ui->LineEdit_TargetConvexHullB->setText("0.5");
     ui->LineEdit_Range->setText("0.03");
+
+    nofmean = 0;
 }
 
 void SimpleView::FlagReset()
@@ -433,6 +436,7 @@ void SimpleView::slotSaveSource()
         return;
 
     SaveModel(PolyData_Source, fileName);
+    //SaveModel(CHM.ConvexHull_Source, fileName);
 }
 
 /* Action to Save the Target Data File */
@@ -1445,11 +1449,6 @@ void SimpleView::slotCHGMM()
     MeshGMMTransformFilter->Update();
     PolyData_Source->DeepCopy(MeshGMMTransformFilter->GetOutput());
 
-    MeshGMMTransformFilter->SetInput(MeshGMM.ConvexHull_Source);
-    MeshGMMTransformFilter->SetTransform(MeshGMMTransform);
-    MeshGMMTransformFilter->Update();
-    MeshGMM.ConvexHull_Source->DeepCopy(MeshGMMTransformFilter->GetOutput());
-
     cout<<"\nMeshGMM done\n" <<endl;
 
     finish = clock();
@@ -1489,6 +1488,8 @@ void SimpleView::slotCHGMMNonRigid()
 
     vtkPolyData2vnl_matrix(PolyData_Source, GMMTPS.model);
     vtkPolyData2vnl_matrix(PolyData_Target, GMMTPS.scene);
+    //vtkPolyData2vnl_matrix(CHM.ConvexHull_Source, GMMTPS.model);
+    //vtkPolyData2vnl_matrix(CHM.ConvexHull_Target, GMMTPS.scene);
 
     vtkPolyData2vnl_matrix(CHM.ConvexHull_Source, GMMTPS.ctrl_pts);
 
@@ -1503,6 +1504,13 @@ void SimpleView::slotCHGMMNonRigid()
     GMMTPS.run(this->ui->LineEdit_GMMMaxEvals->text().toInt());
     //get result
     vnl_matrix2vtkPolyData(PolyData_Source, GMMTPS.transformed_model);
+    VTK_CREATE(vtkTransform, Transform);
+    VTK_CREATE(vtkTransformPolyDataFilter, TransformFilter);
+    TransformFilter->SetInput(PolyData_Source);
+    TransformFilter->SetTransform(Transform);
+    TransformFilter->Update();
+    PolyData_Source->DeepCopy(TransformFilter->GetOutput());
+
     cout<<"\nCHGMM_TPS_L2 done\n" <<endl;
 
     finish = clock();
@@ -2038,3 +2046,27 @@ void SimpleView::slotReTest()
 }
 
 
+void SimpleView::slotMeanModel()
+{
+    double mind, minid, pt[3];
+    nofmean++;
+    for (int i = 0; i < PolyData_Source->GetNumberOfPoints(); i++)
+    {
+        mind = inf;
+        for (int j = 0; j < PolyData_Target->GetNumberOfPoints(); j++)
+        {
+            if (Euc_Dist(PolyData_Source->GetPoint(i), PolyData_Target->GetPoint(j)) < mind)
+            {
+                mind = Euc_Dist(PolyData_Source->GetPoint(i), PolyData_Target->GetPoint(j));
+                minid = j;
+            }
+        }
+        pt[0] = PolyData_Source->GetPoint(i)[0] * nofmean / (nofmean+1) + PolyData_Target->GetPoint(minid)[0] / (nofmean+1);
+        pt[1] = PolyData_Source->GetPoint(i)[1] * nofmean / (nofmean+1) + PolyData_Target->GetPoint(minid)[1] / (nofmean+1);
+        pt[2] = PolyData_Source->GetPoint(i)[2] * nofmean / (nofmean+1) + PolyData_Target->GetPoint(minid)[2] / (nofmean+1);
+        PolyData_Source->GetPoints()->SetPoint(i, pt);
+    }
+    FlagReset();
+    /* Visualization */
+    this->slotRender();
+}

@@ -91,7 +91,7 @@
        </sizepolicy>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="Widget_Initial">
        <attribute name="title">
@@ -1029,8 +1029,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>344</width>
-             <height>529</height>
+             <width>198</width>
+             <height>387</height>
             </rect>
            </property>
            <attribute name="label">
@@ -2118,6 +2118,13 @@
             </widget>
            </item>
           </layout>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QPushButton" name="PushButton_MeanModel">
+          <property name="text">
+           <string>Mean Model</string>
+          </property>
          </widget>
         </item>
        </layout>

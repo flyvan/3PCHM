@@ -154,6 +154,7 @@ public slots:
     virtual void slotTest();
     virtual void slotReTest();
     virtual void slotTestPath();
+    virtual void slotMeanModel();
 
 private:
     // Designer form
@@ -206,6 +207,7 @@ private:
     bool Flag_Source, Flag_Target, Flag_ConvexHull, Flag_Proj, Flag_ProjMatch;
 
     int sizeofimg;
+    int nofmean;
 
     /* Functions */
     void VTKVariablesInit();
