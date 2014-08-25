@@ -91,7 +91,7 @@
        </sizepolicy>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="Widget_Initial">
        <attribute name="title">
@@ -275,6 +275,26 @@
             <widget class="QLabel" name="Label_TargetPts">
              <property name="text">
               <string>Pts</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QLineEdit" name="LineEdit_SourceVol"/>
+           </item>
+           <item row="8" column="1">
+            <widget class="QLineEdit" name="LineEdit_TargetVol"/>
+           </item>
+           <item row="3" column="2">
+            <widget class="QLabel" name="Label_SourceVol">
+             <property name="text">
+              <string>m^3</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="2">
+            <widget class="QLabel" name="Label_TargetVol">
+             <property name="text">
+              <string>m^3</string>
              </property>
             </widget>
            </item>

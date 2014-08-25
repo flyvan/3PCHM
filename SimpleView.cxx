@@ -118,6 +118,8 @@ void SimpleView::QTVariablesInit()
     ui->LineEdit_Sigma->setText("2.0");
     ui->LineEdit_SourcePts->setText("N/A");
     ui->LineEdit_TargetPts->setText("N/A");
+    ui->LineEdit_SourceVol->setText("N/A");
+    ui->LineEdit_TargetVol->setText("N/A");
     ui->RadioButton_Source->setOn(true);
 
     /* Page of ICP */
@@ -126,7 +128,7 @@ void SimpleView::QTVariablesInit()
     /* Page of CHM */
     ui->LineEdit_SourceSD->setText("5000");
     ui->LineEdit_TargetSD->setText("5000");
-    ui->CheckBox_ConvexHullNormalizing->setOn(true);
+    ui->CheckBox_ConvexHullNormalizing->setOn(false);
     ui->RadioButton_ADMMeasure->setOn(true);
 
     /* Page of CHGMM */
@@ -739,24 +741,29 @@ void SimpleView::slotCHM()
 /* Function of Extraction for the Convex Hull */
 void SimpleView::slotConvexHull()
 {	
+    VTK_CREATE(vtkMassProperties, massProperty);
+    char s[10];
+
     if (Flag_Source)
     {
         CHM.SetSource(PolyData_Source, ui->LineEdit_SourceSD->text().toInt());
         CHM.Cal_CH_Source(ui->CheckBox_ConvexHullNormalizing->isOn());
         Points2PolyData(CHM.Points_Source, SparsePoints_Source);
+        massProperty->SetInput(CHM.ConvexHull_Source);
+        massProperty->Update();
+        sprintf(s, "%.1lf", massProperty->GetVolume());
+        this->ui->LineEdit_SourceVol->setText(s);
     }
     if (Flag_Target)
     {
         CHM.SetTarget(PolyData_Target, ui->LineEdit_TargetSD->text().toInt());
         CHM.Cal_CH_Target(ui->CheckBox_ConvexHullNormalizing->isOn());
         Points2PolyData(CHM.Points_Target, SparsePoints_Target);
+        massProperty->SetInput(CHM.ConvexHull_Target);
+        massProperty->Update();
+        sprintf(s, "%.1lf", massProperty->GetVolume());
+        this->ui->LineEdit_TargetVol->setText(s);
     }
-
-    VTK_CREATE(vtkMassProperties, massProperty);
-    massProperty->SetInput(CHM.ConvexHull_Source);
-    massProperty->Update();
-    double vol = massProperty->GetVolume();
-    cout << vol << endl;
 
     Flag_ConvexHull = true;
     slotRender();
